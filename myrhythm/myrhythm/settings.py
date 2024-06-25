@@ -24,7 +24,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'myapp', 
+    'myapp'
+    'django.contrib.auth', 
 ]
 
 MIDDLEWARE = [
@@ -42,7 +43,7 @@ ROOT_URLCONF = 'myrhythm.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],  # Ruta para plantillas
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],  # Asegúrate de que esta línea esté presente
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
