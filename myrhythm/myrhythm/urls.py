@@ -21,5 +21,6 @@ from django.contrib.auth import views as auth_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/', auth_views.LoginView.as_view(), name='login'),  # Añadir URL de login
-    path('', include('myapp.urls')),  # Incluye las URLs de myapp
+    path('', include('myapp.urls')),
+
 ]

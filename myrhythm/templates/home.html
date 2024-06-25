@@ -163,88 +163,75 @@
 
 
 
+<!-- Botón para abrir el modal de inicio de sesión -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal">
+    Iniciar sesión
+</button>
 
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="loginModalLabel">Acceder a tu cuenta</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="login-tab" data-bs-toggle="tab" data-bs-target="#login-form" type="button" role="tab" aria-controls="login-form" aria-selected="true">Iniciar sesión</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="register-tab" data-bs-toggle="tab" data-bs-target="#register-form" type="button" role="tab" aria-controls="register-form" aria-selected="false">Crear cuenta</button>
+                    </li>
+                </ul>
 
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal">
-                Iniciar sesión
-            </button>
-
-            <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="loginModalLabel">Acceder a tu cuenta</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <!-- Nav tabs -->
-                            <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link active" id="login-tab" data-bs-toggle="tab"
-                                        data-bs-target="#login-form" type="button" role="tab" aria-controls="login-form"
-                                        aria-selected="true">Iniciar sesión</button>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="register-tab" data-bs-toggle="tab"
-                                        data-bs-target="#register-form" type="button" role="tab"
-                                        aria-controls="register-form" aria-selected="false">Crear cuenta</button>
-                                </li>
-                            </ul>
-
-                            <!-- Tab panes -->
-                            <div class="tab-content mt-3" id="myTabContent">
-                                <!-- Formulario de inicio de sesión -->
-                                <div class="tab-pane fade show active" id="login-form" role="tabpanel"
-                                    aria-labelledby="login-tab">
-                                    <form action="{% url 'login' %}" method="post">
-                                        {% csrf_token %}
-                                        <div class="mb-3">
-                                            <label for="login-username" class="form-label">Nombre de usuario</label>
-                                            <input type="text" class="form-control" id="login-username" name="username"
-                                                required>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="login-password" class="form-label">Contraseña</label>
-                                            <input type="password" class="form-control" id="login-password"
-                                                name="password" required>
-                                        </div>
-                                        <button type="submit" class="btn btn-primary">Iniciar sesión</button>
-                                    </form>
-                                </div>
-
-                                <!-- Formulario de registro -->
-                                <div class="tab-pane fade" id="register-form" role="tabpanel"
-                                    aria-labelledby="register-tab">
-                                    <form action="{% url 'register' %}" method="post">
-                                        {% csrf_token %}
-                                        <div class="mb-3">
-                                            <label for="register-username" class="form-label">Nombre de usuario</label>
-                                            <input type="text" class="form-control" id="register-username"
-                                                name="username" required>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="register-email" class="form-label">Correo electrónico</label>
-                                            <input type="email" class="form-control" id="register-email" name="email"
-                                                required>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="register-password" class="form-label">Contraseña</label>
-                                            <input type="password" class="form-control" id="register-password"
-                                                name="password" required>
-                                        </div>
-                                        <button type="submit" class="btn btn-primary">Crear cuenta</button>
-                                    </form>
-                                </div>
+                <!-- Tab panes -->
+                <div class="tab-content mt-3" id="myTabContent">
+                    <!-- Formulario de inicio de sesión -->
+                    <div class="tab-pane fade show active" id="login-form" role="tabpanel" aria-labelledby="login-tab">
+                        <form action="{% url 'login' %}" method="post">
+                            {% csrf_token %}
+                            <div class="mb-3">
+                                <label for="login-username" class="form-label">Nombre de usuario</label>
+                                <input type="text" class="form-control" id="login-username" name="username" required>
                             </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        </div>
+                            <div class="mb-3">
+                                <label for="login-password" class="form-label">Contraseña</label>
+                                <input type="password" class="form-control" id="login-password" name="password" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+                        </form>
+                    </div>
+
+                    <!-- Formulario de registro -->
+                    <div class="tab-pane fade" id="register-form" role="tabpanel" aria-labelledby="register-tab">
+                        <form action="{% url 'register' %}" method="post">
+                            {% csrf_token %}
+                            <div class="mb-3">
+                                <label for="register-username" class="form-label">Nombre de usuario</label>
+                                <input type="text" class="form-control" id="register-username" name="username" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="register-email" class="form-label">Correo electrónico</label>
+                                <input type="email" class="form-control" id="register-email" name="email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="register-password" class="form-label">Contraseña</label>
+                                <input type="password" class="form-control" id="register-password" name="password" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Crear cuenta</button>
+                        </form>
                     </div>
                 </div>
             </div>
-
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
         </div>
+    </div>
+</div>
+
     </nav>
 
 
