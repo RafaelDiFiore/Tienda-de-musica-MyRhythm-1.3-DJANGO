@@ -5,6 +5,12 @@ from django.contrib.auth.forms import UserCreationForm
 def home(request):
     return render(request, 'home.html')
 
+def guitarras(request):
+    return render(request, 'guitarras.html')
+
+def baterias(request):
+    return render (request, 'bateria.html')
+
 
 def login_view(request):
     if request.method == 'POST':
