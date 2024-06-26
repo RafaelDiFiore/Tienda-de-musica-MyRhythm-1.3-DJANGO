@@ -5,6 +5,7 @@ from django.contrib.auth.forms import UserCreationForm
 def home(request):
     return render(request, 'home.html')
 
+
 def login_view(request):
     if request.method == 'POST':
         username = request.POST['username']
@@ -12,7 +13,7 @@ def login_view(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('home')  # Cambia 'home' por el nombre de la vista de inicio
+            return redirect('home')
         else:
             return render(request, 'login.html', {'error': 'Usuario o contraseña incorrectos'})
     return render(request, 'login.html')
@@ -22,7 +23,7 @@ def register_view(request):
         form = UserCreationForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('login')  # Redirige al login después del registro
+            return redirect('login')
     else:
         form = UserCreationForm()
     return render(request, 'register.html', {'form': form})
